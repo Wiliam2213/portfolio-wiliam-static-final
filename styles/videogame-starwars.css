@@ -1,0 +1,463 @@
+/* ========================================
+   VIDEOGAME + STAR WARS THEME
+   ======================================== */
+
+:root {
+  --primary-glow: #00FFFF;
+  --secondary-glow: #FF00FF;
+  --tertiary-glow: #00FF00;
+  --dark-space: #0a0e27;
+  --light-space: #1a1f3a;
+}
+
+/* ========================================
+   BODY & BACKGROUND
+   ======================================== */
+
+body {
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ========================================
+   HOLOGRAPHIC SECTIONS
+   ======================================== */
+
+section {
+  position: relative;
+  z-index: 2;
+  border-left: 3px solid rgba(0, 255, 255, 0.3);
+  border-right: 3px solid rgba(255, 0, 255, 0.3);
+  box-shadow: 
+    inset 0 0 20px rgba(0, 255, 255, 0.05),
+    0 0 30px rgba(0, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+section:hover {
+  box-shadow: 
+    inset 0 0 30px rgba(0, 255, 255, 0.1),
+    0 0 40px rgba(0, 255, 255, 0.2);
+  border-left-color: rgba(0, 255, 255, 0.6);
+  border-right-color: rgba(255, 0, 255, 0.6);
+}
+
+/* ========================================
+   TITLES WITH NEON GLOW
+   ======================================== */
+
+.section-title {
+  position: relative;
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  background: linear-gradient(135deg, #00FFFF, #FF00FF, #00FF00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+  animation: titlePulse 3s ease-in-out infinite;
+  margin-bottom: 2rem;
+}
+
+@keyframes titlePulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 0, 255, 0.4));
+  }
+}
+
+/* ========================================
+   BUTTONS - VIDEOGAME STYLE
+   ======================================== */
+
+.btn {
+  position: relative;
+  padding: 12px 30px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 2px solid;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn-primary {
+  background: rgba(0, 255, 0, 0.1);
+  border-color: #00FF00;
+  color: #00FF00;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.btn-primary:hover {
+  background: rgba(0, 255, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: #00FFFF;
+  color: #00FFFF;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   SKILL BADGES - HOLOGRAPHIC
+   ========================================*/
+
+.skill-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 6px;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  border-radius: 20px;
+  color: #00FFFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.skill-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.skill-badge:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+  border-color: rgba(0, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.skill-badge:hover::before {
+  left: 100%;
+}
+
+/* ========================================
+   PROJECT CARDS - ARCADE STYLE
+   ======================================== */
+
+.project-card {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(255, 0, 255, 0.05));
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 25px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 0 15px rgba(0, 255, 255, 0.1),
+    inset 0 0 15px rgba(0, 255, 255, 0.05);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00FFFF, transparent);
+  animation: scanline 2s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(300px);
+  }
+}
+
+.project-card:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(255, 0, 255, 0.15));
+  border-color: rgba(0, 255, 255, 0.8);
+  box-shadow: 
+    0 0 30px rgba(0, 255, 255, 0.3),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+/* ========================================
+   EXPERIENCE TIMELINE
+   ======================================== */
+
+.timeline-item {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 30px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: #00FFFF;
+  border: 2px solid #FF00FF;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+  animation: markerPulse 2s ease-in-out infinite;
+}
+
+@keyframes markerPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.9);
+  }
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 20px;
+  bottom: -30px;
+  width: 2px;
+  background: linear-gradient(180deg, #00FFFF, transparent);
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-content {
+  background: rgba(0, 255, 255, 0.05);
+  border-left: 3px solid #00FFFF;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  background: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+/* ========================================
+   FORM ELEMENTS
+   ======================================== */
+
+input, textarea {
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: #00FFFF;
+  padding: 12px;
+  border-radius: 3px;
+  font-family: 'Space Mono', monospace;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  background: rgba(0, 255, 255, 0.1);
+  border-color: #00FFFF;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(0, 255, 255, 0.5);
+}
+
+/* ========================================
+   LINKS
+   ======================================== */
+
+a {
+  color: #00FFFF;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00FFFF, #FF00FF);
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+
+  section {
+    border-left-width: 2px;
+    border-right-width: 2px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .skill-badge {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .skill-badge {
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    margin: 4px;
+  }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes glitchText {
+  0% {
+    text-shadow: 
+      2px 0 #FF00FF,
+      -2px 0 #00FFFF;
+  }
+  50% {
+    text-shadow: 
+      -2px 0 #FF00FF,
+      2px 0 #00FFFF;
+  }
+  100% {
+    text-shadow: 
+      2px 0 #FF00FF,
+      -2px 0 #00FFFF;
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.float-up {
+  animation: floatUp 0.6s ease-out;
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  body::before,
+  #starfieldCanvas,
+  #scanlineCanvas,
+  #audioToggle {
+    display: none;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+}
